@@ -1,1 +1,1 @@
-A plugin for Obsidian.md that adds a command to better interact with matrices in LaTeX
+A plugin for Obsidian.md that adds a command (called Quick Matrix) to better interact with matrices in LaTeX
