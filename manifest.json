@@ -1,0 +1,11 @@
+{
+	"id": "quick-matrix",
+	"name": "Quick Matrix",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Adds command to make LaTeX matrices quickly",
+	"author": "thewheelbarrow",
+	"authorUrl": "",
+	"fundingUrl": "",
+	"isDesktopOnly": false
+}
