@@ -3,8 +3,8 @@ import { Plugin, Editor, Modal, Setting, App } from 'obsidian'
 export default class QuickMatrix extends Plugin {
 	async onload(){
 		this.addCommand({
-			id: "quick-matrix",
-			name: "Quick Matrix",
+			id: "bracket-matrix",
+			name: "Bracket Matrix",
 			editorCallback: async (editor: Editor) => {
 				let rowCount = Number(await new StringModal(this.app, "How many rows would you like?").openAndGetValue())
 				let outputString = "$\\begin{bmatrix}"
