@@ -5,7 +5,5 @@
 	"minAppVersion": "0.15.0",
 	"description": "Adds command to make LaTeX matrices quickly",
 	"author": "thewheelbarrow",
-	"authorUrl": "",
-	"fundingUrl": "",
 	"isDesktopOnly": false
 }
