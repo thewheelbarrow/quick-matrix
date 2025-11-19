@@ -4,26 +4,37 @@ export default class QuickMatrix extends Plugin {
 	async onload(){
 		this.addCommand({
 			id: "bracket-matrix",
-			name: "Bracket Matrix",
-			editorCallback: async (editor: Editor) => {
-				let rowCount = Number(await new StringModal(this.app, "How many rows would you like?").openAndGetValue())
-				let outputString = "$\\begin{bmatrix}"
-				for (let row = 0; row < rowCount; row++) {
-					let rowInput = await new StringModal(this.app, "Entries for the next row (seperated by spaces):").openAndGetValue()
-					let entries = rowInput.split(" ")
-					let rowString = ""
-					for (let entryNo = 0; entryNo < entries.length; entryNo++) {
-						rowString = rowString.concat(entries[entryNo])
-						rowString = rowString.concat("&")
-					}
-					rowString = rowString.substring(0, rowString.length - 1)
-					rowString = rowString.concat("\\\\")
-					outputString = outputString.concat(rowString)
-				}
-				outputString = outputString.concat("\\end{bmatrix}$")
-				editor.replaceRange(outputString, editor.getCursor())
+			name: "Bracket matrix",
+			editorCallback: async (editor) => {
+				await this.new_matrix("bmatrix", editor)
 			}
 		})
+		this.addCommand({
+			id: "determinant-matrix",
+			name: "Determinant Matrix",
+			editorCallback: async (editor) => {
+				await this.new_matrix("vmatrix", editor)
+			}
+		})
+	}
+
+	private async new_matrix(type, editor) {
+		let rowCount = Number(await new StringModal(this.app, "How many rows would you like?").openAndGetValue())
+		let outputString = "$\\begin{".concat(type).concat("}")
+		for (let row = 0; row < rowCount; row++) {
+			let rowInput = await new StringModal(this.app, "Entries for the next row (seperated by spaces):").openAndGetValue()
+			let entries = rowInput.split(" ")
+			let rowString = ""
+			for (let entryNo = 0; entryNo < entries.length; entryNo++) {
+				rowString = rowString.concat(entries[entryNo])
+				rowString = rowString.concat("&")
+			}
+			rowString = rowString.substring(0, rowString.length - 1)
+			rowString = rowString.concat("\\\\")
+			outputString = outputString.concat(rowString)
+		}
+		outputString = outputString.concat("\\end{").concat(type).concat("}$")
+		editor.replaceRange(outputString, editor.getCursor())
 	}
 }
 
