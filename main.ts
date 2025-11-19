@@ -11,7 +11,7 @@ export default class QuickMatrix extends Plugin {
 		})
 		this.addCommand({
 			id: "determinant-matrix",
-			name: "Determinant Matrix",
+			name: "Determinant matrix",
 			editorCallback: async (editor) => {
 				await this.new_matrix("vmatrix", editor)
 			}
