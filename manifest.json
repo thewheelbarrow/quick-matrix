@@ -3,7 +3,7 @@
 	"name": "Quick Matrix",
 	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Adds command to make LaTeX matrices quickly",
+	"description": "Adds command to make LaTeX matrices quickly.",
 	"author": "thewheelbarrow",
 	"isDesktopOnly": false
 }
